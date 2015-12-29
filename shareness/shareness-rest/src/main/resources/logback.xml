@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="rollingFile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/tmp/logs/shareness-rest/rolling.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/tmp/logs/shareness-rest/rolling.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- project default level -->
+	<logger name="com.shareness" level="INFO" />
+
+	<!-- rest default level -->
+	<logger name="com.shareness.rest" level="DEBUG" />
+
+	<!-- dao default level -->
+	<logger name="com.shareness.dao" level="DEBUG" />
+
+	<!--log4jdbc -->
+	<logger name="jdbc.sqltiming" level="DEBUG" />
+
+	<!-- root -->
+	<root level="INFO">
+		<appender-ref ref="console" />
+	</root>
+</configuration>

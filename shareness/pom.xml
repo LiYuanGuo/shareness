@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.shareness</groupId>
+	<artifactId>shareness</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>shareness-dao</module>
+		<module>shareness-domain</module>
+		<module>shareness-service</module>
+		<module>shareness-rest</module>
+		<module>shareness-web</module>
+	</modules>
+	<profiles>
+		<profile>
+			<id>development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- db connection config -->
+				<pom.jdbc.driver>com.mysql.jdbc.Driver</pom.jdbc.driver>
+				<pom.jdbc.url>jdbc:mysql://localhost:3306/shareness?useUnicode=true&amp;amp;characterEncoding=UTF-8&amp;allowMultiQueries=true</pom.jdbc.url>
+				<pom.jdbc.username>root</pom.jdbc.username>
+				<pom.jdbc.password>123456</pom.jdbc.password>
+				<!-- db pool connection config -->
+				<pom.jdbc.maxActive>15</pom.jdbc.maxActive>
+				<pom.jdbc.maxWait>3000</pom.jdbc.maxWait>
+				<!-- domain config -->
+				<pom.cookie.domain>501314.love</pom.cookie.domain>
+			</properties>
+		</profile>
+	</profiles>
+	<description>shareness</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

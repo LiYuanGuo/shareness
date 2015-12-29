@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	<context:property-placeholder location="classpath:applicationContext.properties" />
+
+	<!-- 自动扫描且只扫描@Controller -->
+	<context:component-scan base-package="com.shareness.rest.controller"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation"
+			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+
+	<!-- 开启对fastJson的支持替换掉默认的jackson支持,使用只需在方法上标注@responseBody -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean
+				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<property name="supportedMediaTypes" value="application/json" />
+				<property name="features">
+					<array>
+						<value>WriteMapNullValue</value>
+						<value>QuoteFieldNames</value>
+						<value>WriteDateUseDateFormat</value>
+					</array>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 将无法mapping到Controller的path交给default servlet handler处理 -->
+	<mvc:default-servlet-handler />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.InternalResourceView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!--配置过滤器 -->
+	<!-- <mvc:interceptors> 登陆是否有效过滤器 <mvc:interceptor> <mvc:mapping path="/**"/> 
+		<bean class="cn.sitemaker.auth.interceptor.AuthValidateIntercepor"> <property 
+		name="noLoginUrl" value="${authNoLoginUrl}"></property> <property name="authValidateUrl" 
+		value="${authValidateUrl}"></property> </bean> </mvc:interceptor> </mvc:interceptors> -->
+
+	<!-- 验证码生成器，使用谷歌的Kaptcha，生成 -->
+	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+		<property name="config">
+			<bean class="com.google.code.kaptcha.util.Config">
+				<!--通过构造函数注入属性值 -->
+				<constructor-arg type="java.util.Properties">
+					<props>
+						<!-- 验证码宽度 -->
+						<prop key="kaptcha.image.width">300</prop>
+						<!-- 验证码高度 -->
+						<prop key="kaptcha.image.height">120</prop>
+						<!-- 生成验证码内容范围 -->
+						<prop key="kaptcha.textproducer.char.string">123456789</prop>
+						<!-- 验证码个数 -->
+						<prop key="kaptcha.textproducer.char.length">4</prop>
+						<!-- 是否有边框 -->
+						<prop key="kaptcha.border">no</prop>
+						<!-- 边框颜色 -->
+						<!-- <prop key="kaptcha.border.color">105,179,90</prop> -->
+						<!-- 边框厚度 -->
+						<prop key="kaptcha.border.thickness">2</prop>
+						<!-- 验证码字体颜色 -->
+						<prop key="kaptcha.textproducer.font.color">red</prop>
+						<!-- 验证码字体大小 -->
+						<prop key="kaptcha.textproducer.font.size">100</prop>
+						<!-- 验证码所属字体样式 -->
+						<prop key="kaptcha.textproducer.font.names">宋体,楷体,微软雅黑</prop>
+						<!-- 干扰线颜色 -->
+						<!--<prop key="kaptcha.noise.color">blue</prop> -->
+						<!--去掉干扰线 -->
+						<prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop>
+						<!-- 验证码文本字符间距 -->
+						<prop key="kaptcha.textproducer.char.space">10</prop>
+						<!-- 背景颜色 -->
+						<!-- <prop key="kaptcha.background.clear.to">48,173,205</prop> -->
+						<prop key="kaptcha.obscurificator.impl">com.google.code.kaptcha.impl.ShadowGimpy</prop>
+					</props>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+</beans>

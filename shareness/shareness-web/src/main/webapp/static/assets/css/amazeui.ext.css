@@ -1,0 +1,86 @@
+@charset "utf-8";
+/***扩展样式库*/
+html {
+	font-size: 62.5%;
+	display: "";
+}
+
+body {
+	font-size: 1.6rem;
+}
+
+*
+ .am-header {
+	height: 44px;
+	line-height: 44px;
+}
+
+.am-header-default {
+	background-color: #fff;
+	border: solid 1px #ddd;
+}
+
+.am-header-default .am-header-title a {
+	color: #000;
+}
+
+.am-header-default .am-header-nav>a {
+	color: #fc6a14;
+	font-size: 20px;
+}
+
+.am-navbar-default .am-navbar-nav {
+	background-color: #fc6a14;
+}
+
+button {
+	width: 48%;
+	border: solid 1px #fc6a14;
+	background-color: #fff;
+	height: 30px;
+	border-radius: 5px;
+}
+
+.am-divider {
+	height: 0px;
+	overflow: hidden;
+	clear: both;
+	margin-top: 0.5rem;
+	margin-right: auto;
+	margin-bottom: 0.5rem;
+	margin-left: auto;
+}
+
+.am-form-group {
+	margin-bottom: 0rem;
+}
+
+[class*="am-u-"] {
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+#vld-tooltip {
+	position: absolute;
+	z-index: 1000;
+	padding: 5px 10px;
+	background: #F37B1D;
+	min-width: 100px;
+	color: #fff;
+	transition: all 0.15s;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+	display: none;
+}
+
+#vld-tooltip:before {
+	position: absolute;
+	top: -8px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	margin-left: -8px;
+	content: "";
+	border-width: 0 8px 8px;
+	border-color: transparent transparent #F37B1D;
+	border-style: none inset solid;
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shareness.dao.SiteDao">
+	<resultMap id="BaseResultMap" type="com.shareness.domain.Site">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<id column="name" property="name" jdbcType="VARCHAR" />
+		<id column="image" property="image" jdbcType="VARCHAR" />
+		<id column="brief_content" property="briefContent" jdbcType="VARCHAR" />
+		<id column="detail_content" property="detailContent" jdbcType="VARCHAR" />
+		<id column="ticket" property="ticket" jdbcType="VARCHAR" />
+		<id column="address" property="address" jdbcType="VARCHAR" />
+		<id column="route" property="route" jdbcType="VARCHAR" />
+		<id column="traffic" property="traffic" jdbcType="INTEGER" />
+		<id column="play_mode" property="playMode" jdbcType="VARCHAR" />
+		<id column="tip" property="tip" jdbcType="VARCHAR" />
+		<id column="shisu" property="shisu" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.shareness.domain.Site"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into t_site (
+		name,
+		image,
+		brief_content,
+		detail_content,
+		ticket,
+		address,
+		route,
+		traffic,
+		play_mode,
+		tip,
+		shisu
+		)
+		values (
+		#{name,jdbcType=VARCHAR},
+		#{image,jdbcType=VARCHAR},
+		#{briefContent,jdbcType=VARCHAR},
+		#{detailContent,jdbcType=VARCHAR},
+		#{ticket,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{route,jdbcType=VARCHAR},
+		#{traffic,jdbcType=INTEGER},
+		#{playMode,jdbcType=VARCHAR},
+		#{tip,jdbcType=VARCHAR},
+		#{shisu,jdbcType=VARCHAR}
+		)
+	</insert>
+	<select id="queryById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select *
+		from
+		t_site
+		where id=#{id}
+	</select>
+	<select id="queryByPage" resultMap="BaseResultMap">
+		select *
+		from
+		t_site
+		limit
+		#{begin},#{pageSize}
+	</select>
+	<update id="update" parameterType="com.shareness.domain.Site">
+		update
+		t_site
+		<set>
+			<if test="name !=null">
+				name=name,
+			</if>
+			<if test="image !=null">
+				image=image,
+			</if>
+			<if test="briefContent !=null">
+				brief_content=briefContent,
+			</if>
+			<if test="detail_content !=null">
+				detail_content=detailContent,
+			</if>
+			<if test="ticket !=null">
+				ticket=ticket,
+			</if>
+			<if test="address !=null">
+				address=address,
+			</if>
+			<if test="route !=null">
+				route=route,
+			</if>
+			<if test="traffic !=null">
+				traffic=traffic,
+			</if>
+			<if test="playMode !=null">
+				play_mode=playMode,
+			</if>
+			<if test="tip !=null">
+				tip=tip,
+			</if>
+			<if test="shisu !=null">
+				shisu=shisu
+			</if>
+
+		</set>
+	</update>
+
+</mapper>
