@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSONObject;
@@ -49,5 +50,17 @@ public class MainController extends SupportAction{
 			String siteListJson=JSONObject.toJSONString(siteList);
 			writeInfo(response, siteListJson);
 		}
+	}
+	
+	/**
+	 * 景点或者美食详情跳转
+	 * @param model
+	 * @param enjoyId
+	 * @return
+	 */
+	@RequestMapping("detail")
+	public String enjoyDetail(Model model,Long enjoyId){
+		model.addAttribute("siteId", enjoyId);
+		return "site/siteDetail";
 	}
 }

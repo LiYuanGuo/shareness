@@ -1,0 +1,11 @@
+.imageClass {
+	height: 150px;
+	width:110%;
+}
+.content {
+	padding-left:4px;
+	padding-right:4px;
+}
+body{
+	font-size:14px;
+}

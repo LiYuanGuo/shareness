@@ -11,13 +11,18 @@ $(function(){
 		dataType:'json',
 		success:function(datas){
 			$.each(datas,function(k,v){
-				html +='<li><img src="'+v.image+'">';
+				html +='<li class="headImage"><input type="hidden" id="enjoyId" value="'+v.id+'"><img src="'+v.image+'">';
 				html +='<div class="am-slider-desc">'+v.briefContent+'</div></li>';
 			});
 			
 		}
 	});
 	$("#head_slider").html(html);
+	
+	$("#head_slider").delegate("li","click",function(){
+		var enjoyId=$(this).find("input").val();
+		location.href="main/detail?enjoyId="+enjoyId;
+	});
 	
 	//控制翻页
 	window.onscroll = function ()
@@ -27,6 +32,7 @@ $(function(){
 	        select_query($('#page').val());
 	    }
 	  }
+	
 });
 
 //下拉刷新数据

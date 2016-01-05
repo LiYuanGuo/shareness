@@ -1,0 +1,21 @@
+$(function(){
+	$.ajax({
+		type:"post",
+		url:"site/siteDetail",
+		cache:false,
+		async:false,
+		data:{"siteId":siteId},
+		dataType:"json",
+		success:function(data){
+			$("#img").attr("src",data.image);
+			$("#name").html(data.name);
+			$("#detailContent").html(data.detailContent);
+			$("#ticket").html(data.ticket);
+			$("#address").html(data.address);
+			$("#route").html(data.route);
+			$("#playMode").html(data.playMode);
+			$("#tip").html(data.tip);
+			$("#shisu").html(data.shisu);
+		}
+	});
+});
