@@ -49,21 +49,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div data-am-widget="slider" class="am-slider am-slider-c2"
 		data-am-slider='{"directionNav":false}'>
 		<ul class="am-slides" id="head_slider">
-			<li><img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
+			<!-- <li><img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
 				<div class="am-slider-desc">远方 有一个地方 那里种有我们的梦想</div></li>
 			<li><img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
 				<div class="am-slider-desc">某天 也许会相遇 相遇在这个好地方</div></li>
 			<li><img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
 				<div class="am-slider-desc">不要太担心 只因为我相信 终会走过这条遥远的道路</div></li>
 			<li><img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
-				<div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div></li>
+				<div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div></li> -->
 		</ul>
 	</div>
 
 	<div>
+
+		<div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
+			<h2 class="am-titlebar-title ">享你想玩</h2>
+
+			<nav class="am-titlebar-nav"> <a href="#more" class="">more
+				&raquo;</a> </nav>
+		</div>
+
+		
 		<ul data-am-widget="gallery"
 			class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered"
-			data-am-gallery="{  }">
+			data-am-gallery="{  }" id="sites">
 			<li>
 				<div class="am-gallery-item">
 					<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
@@ -105,9 +114,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</li>
 		</ul>
+		
+		<div data-am-widget="titlebar" class="am-titlebar am-titlebar-default">
+			<h2 class="am-titlebar-title ">享你想吃</h2>
+
+			<nav class="am-titlebar-nav"> <a href="#more" class="">more
+				&raquo;</a> </nav>
+		</div>
+		
 		<ul data-am-widget="gallery"
 			class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered"
-			data-am-gallery="{  }">
+			data-am-gallery="{  }" id="foods">
 			<li>
 				<div class="am-gallery-item">
 					<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
@@ -154,8 +171,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- 下拉滑动加载 -->
 	<div class="see-more" id="page_div" style="background-color: #fff">
 
-		<a id="page" style="margin-left: 32%;"><span
-			class="am-icon-refresh"></span>滑动查看更多优惠券信息</a>
+		<a id="page" style="margin-left: 40%;"><span
+			class="am-icon-refresh"></span>滑滑更精彩</a>
 		<!-- <div id="loading" style="text-align:center; display:none;">
    			 <img src="../resource/images/loading.gif" style="width:20px; height:20px;">
     		<a>正在网上努力蹦跑,马上就好...</a>

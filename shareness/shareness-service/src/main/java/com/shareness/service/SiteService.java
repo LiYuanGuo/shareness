@@ -34,6 +34,13 @@ public interface SiteService {
 	public List<Site> queryByPage(int page,int pageSize);
 	
 	/**
+	 * 查询指定数量的正热推荐的景点
+	 * @param num
+	 * @return
+	 */
+	public List<Site> queryTopSite(int num);
+	
+	/**
 	 * 更新景点信息
 	 * @param site
 	 */

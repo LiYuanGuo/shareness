@@ -41,4 +41,11 @@ public interface SiteDao {
 	 * @param site
 	 */
 	public void update(Site site);
+	
+	/**
+	 * 查询指定数量的正热推荐的景点
+	 * @param limitNum
+	 * @return
+	 */
+	public List<Site> queryTopSite(@Param(value="limitNum")int limitNum);
 }

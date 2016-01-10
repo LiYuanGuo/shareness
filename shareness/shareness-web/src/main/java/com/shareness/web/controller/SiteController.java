@@ -1,5 +1,8 @@
 package com.shareness.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,6 +41,22 @@ public class SiteController extends SupportAction{
 		}else{
 			String siteStr=JSONObject.toJSONString(site);
 			writeInfo(response, siteStr);
+		}
+	}
+	
+	/**
+	 * 查询指定数量的正热推荐的景点
+	 * @param response
+	 */
+	@RequestMapping("topSite")
+	public void topSite(HttpServletResponse response){
+		List<Site> siteList=new ArrayList<Site>();
+		siteList=siteService.queryTopSite(4);
+		if(siteList==null){
+			writeMsg2(response, 9, "查询出现异常!");
+		}else{
+			String siteListStr=JSONObject.toJSONString(siteList);
+			writeInfo(response, siteListStr);
 		}
 	}
 }

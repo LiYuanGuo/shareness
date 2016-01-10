@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="static/assets/js/amazeui.min.js"></script>
 <script src="static/assets/js/common.js"></script>
 <script type="text/javascript">
-	var siteId=${siteId};
+	var siteId='${siteId}';
 </script>
 <script src="static/js/site/site.js"></script>
 </head>

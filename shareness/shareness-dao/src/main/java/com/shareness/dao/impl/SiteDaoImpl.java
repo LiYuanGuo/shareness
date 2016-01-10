@@ -37,4 +37,9 @@ public class SiteDaoImpl extends MyBatisSupport<SiteDao, SiteDao> implements Sit
 		getMapper().update(site);
 	}
 
+	@Override
+	public List<Site> queryTopSite(int limitNum) {
+		return getMapper().queryTopSite(limitNum);
+	}
+
 }

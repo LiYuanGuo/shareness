@@ -62,4 +62,17 @@ public class SiteServiceImpl implements SiteService{
 		siteDao.update(site);
 	}
 
+	@Override
+	public List<Site> queryTopSite(int num) {
+		List<Site> siteList=null;
+		try {
+			siteList=siteDao.queryTopSite(num);
+			return siteList;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
 }

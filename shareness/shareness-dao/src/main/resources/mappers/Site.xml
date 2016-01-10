@@ -58,6 +58,13 @@
 		limit
 		#{begin},#{pageSize}
 	</select>
+	<select id="queryTopSite" resultMap="BaseResultMap">
+		select *
+		from
+		t_site
+		limit
+		0,#{limitNum}
+	</select>
 	<update id="update" parameterType="com.shareness.domain.Site">
 		update
 		t_site

@@ -24,6 +24,26 @@ $(function(){
 		location.href="main/detail?enjoyId="+enjoyId;
 	});
 	
+	//初始化景点数据
+	html="";
+	$.ajax({
+		type:'post',
+		url:'site/topSite',
+		cache:false,
+		async:false,
+		dataType:'json',
+		success:function(datas){
+			$.each(datas,function(k,v){
+				html +='<li><div class="am-gallery-item"><a href="main/detail?enjoyId='+v.id+'" class=""><img src="'+v.image+'"alt="'+v.briefContent+'" />';
+				html +='<h3 class="am-gallery-title">'+v.briefContent+'</h3><div class="am-gallery-desc">阅读量1000</div>';
+				html +='</a></div></li>';
+			});
+			
+		}
+		
+	})
+	$("#sites").html(html);
+	
 	//控制翻页
 	window.onscroll = function ()
 	  {
@@ -42,7 +62,7 @@ function select_query(page){
   }else{
     $('#page').val(parseInt($('#page').val()) + 1);
     
-    $.post(host,{"page":page,"areaId":areaId,"districtId":districtId,"restaurantTypeId":restaurantTypeId},function(d){
+    $.post(host,{},function(d){
     	data = eval('(' + d + ')');
 		 if (data.coupons!=undefined) {
 			 oppendRestaurantHmtl(data.coupons);
