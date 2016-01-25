@@ -5,7 +5,6 @@ $(function(){
 	$.ajax({
 		type:'post',
 		url:'main/initMain',
-		data:{'page':page},
 		cache:false,
 		async:false,
 		dataType:'json',

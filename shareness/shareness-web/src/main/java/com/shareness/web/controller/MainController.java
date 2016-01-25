@@ -43,9 +43,9 @@ public class MainController extends SupportAction{
 	 * @param page
 	 */
 	@RequestMapping("initMain")
-	public void queryByPage(HttpServletResponse response,int page){
+	public void queryByPage(HttpServletResponse response){
 		List<Site> siteList=new ArrayList<Site>();
-		siteList=siteService.queryByPage(page, 4);
+		siteList=siteService.queryTopSite(4);
 		if(siteList!=null){
 			String siteListJson=JSONObject.toJSONString(siteList);
 			writeInfo(response, siteListJson);

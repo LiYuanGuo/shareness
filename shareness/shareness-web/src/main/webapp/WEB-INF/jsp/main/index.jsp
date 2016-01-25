@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+<title>shareness</title>
 <link rel="icon" type="image/png" href="assets/i/favicon.png">
 <link rel="stylesheet" href="static/assets/css/amazeui.min.css">
 <link rel="stylesheet" href="static/css/main/main.css">

@@ -48,4 +48,7 @@
 		class="com.shareness.web.interceptor.ValidateLoginInterceptor"> </bean> </mvc:interceptor> 
 		<mvc:interceptor> <mvc:mapping path="/main/mainpage"/> <bean class="com.shareness.web.interceptor.VlidateLoginInterceptor2"> 
 		</bean> </mvc:interceptor> </mvc:interceptors> -->
+	<bean
+		id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
 </beans>
