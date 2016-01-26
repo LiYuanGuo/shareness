@@ -53,14 +53,27 @@ public class MainController extends SupportAction{
 	}
 	
 	/**
-	 * 景点或者美食详情跳转
+	 * 景点详情跳转
 	 * @param model
-	 * @param enjoyId
+	 * @param siteId
 	 * @return
 	 */
-	@RequestMapping("detail")
-	public String enjoyDetail(Model model,Long enjoyId){
-		model.addAttribute("siteId", enjoyId);
+	@RequestMapping("siteDetail")
+	public String siteDetail(Model model,Long siteId){
+		model.addAttribute("siteId", siteId);
 		return "site/siteDetail";
 	}
+	
+	/**
+	 * 美食详情跳转
+	 * @param model
+	 * @param foodId
+	 * @return
+	 */
+	@RequestMapping("foodDetail")
+	public String foodDetail(Model model,Long foodId){
+		model.addAttribute("foodId", foodId);
+		return "food/foodDetail";
+	}
+	
 }

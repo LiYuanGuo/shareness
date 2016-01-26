@@ -1,0 +1,18 @@
+$(function(){
+	$.ajax({
+		type:"post",
+		url:"food/foodDetail",
+		cache:false,
+		async:false,
+		data:{"foodId":foodId},
+		dataType:"json",
+		success:function(data){
+			$("#img").attr("src",data.image);
+			$("#name").html(data.name);
+			$("#detailContent").html(data.detailContent);
+			$("#consumption").html(data.consumption);
+			$("#address").html(data.address);
+			$("#tip").html(data.tip);
+		}
+	});
+});

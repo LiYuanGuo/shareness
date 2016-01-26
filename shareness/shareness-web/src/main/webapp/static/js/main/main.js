@@ -33,8 +33,8 @@ $(function(){
 		dataType:'json',
 		success:function(datas){
 			$.each(datas,function(k,v){
-				html +='<li><div class="am-gallery-item"><a href="main/detail?enjoyId='+v.id+'" class=""><img src="'+v.image+'"alt="'+v.briefContent+'" />';
-				html +='<h3 class="am-gallery-title">'+v.briefContent+'</h3><div class="am-gallery-desc">阅读量1000</div>';
+				html +='<li><div class="am-gallery-item"><a href="main/siteDetail?siteId='+v.id+'" class=""><img src="'+v.image+'"alt="'+v.briefContent+'" />';
+				html +='<h3 class="am-gallery-title">'+v.briefContent+'</h3><div class="am-gallery-desc">阅读量:1000</div>';
 				html +='</a></div></li>';
 			});
 			
@@ -42,6 +42,26 @@ $(function(){
 		
 	})
 	$("#sites").html(html);
+	
+	//初始化美食数据
+	html="";
+	$.ajax({
+		type:'post',
+		url:'food/topFood',
+		cache:false,
+		async:false,
+		dataType:'json',
+		success:function(datas){
+			$.each(datas,function(k,v){
+				html +='<li><div class="am-gallery-item"><a href="main/foodDetail?foodId='+v.id+'" class=""><img src="'+v.image+'"alt="'+v.briefContent+'" />';
+				html +='<h3 class="am-gallery-title">'+v.briefContent+'</h3><div class="am-gallery-desc">阅读量:1000</div>';
+				html +='</a></div></li>';
+			});
+			
+		}
+		
+	})
+	$("#foods").html(html);
 	
 	//控制翻页
 	window.onscroll = function ()

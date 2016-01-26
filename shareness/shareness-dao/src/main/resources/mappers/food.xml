@@ -52,7 +52,7 @@
 		limit
 		#{begin},#{pageSize}
 	</select>
-	<select id="queryTopSite" resultMap="BaseResultMap">
+	<select id="queryTopFood" resultMap="BaseResultMap">
 		select *
 		from
 		t_food
