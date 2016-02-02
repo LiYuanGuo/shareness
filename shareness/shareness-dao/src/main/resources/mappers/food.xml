@@ -12,9 +12,11 @@
 		<id column="route" property="route" jdbcType="VARCHAR" />
 		<id column="traffic" property="traffic" jdbcType="INTEGER" />
 		<id column="tip" property="tip" jdbcType="VARCHAR" />
+		<id column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+		<id column="refresh_time" property="refreshTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 
-	<insert id="insert" parameterType="com.shareness.domain.Food"
+	<insert id="insertFood" parameterType="com.shareness.domain.Food"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into t_food (
 		name,
@@ -25,7 +27,9 @@
 		address,
 		route,
 		traffic,
-		tip
+		tip,
+		add_time,
+		refresh_time
 		)
 		values (
 		#{name,jdbcType=VARCHAR},
@@ -36,7 +40,9 @@
 		#{address,jdbcType=VARCHAR},
 		#{route,jdbcType=VARCHAR},
 		#{traffic,jdbcType=INTEGER},
-		#{tip,jdbcType=VARCHAR}
+		#{tip,jdbcType=VARCHAR},
+		#{addTime,jdbcType=TIMESTAMP},
+		#{refreshTime,jdbcType=TIMESTAMP}
 		)
 	</insert>
 	<select id="queryById" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -49,6 +55,7 @@
 		select *
 		from
 		t_food
+		order by refresh_time desc
 		limit
 		#{begin},#{pageSize}
 	</select>
@@ -56,6 +63,7 @@
 		select *
 		from
 		t_food
+		order by refresh_time desc
 		limit
 		0,#{limitNum}
 	</select>
@@ -88,7 +96,13 @@
 				traffic=traffic,
 			</if>
 			<if test="tip !=null">
-				tip=tip
+				tip=tip,
+			</if>
+			<if test="addTime !=null">
+				add_time=addTime,
+			</if>
+			<if test="refreshTime !=null">
+				refresh_time=freshTime
 			</if>
 
 		</set>

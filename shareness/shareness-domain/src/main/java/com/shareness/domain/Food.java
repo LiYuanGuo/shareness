@@ -1,5 +1,7 @@
 package com.shareness.domain;
 
+import java.util.Date;
+
 /**
  *@Copy Right Information  www.501314.love
  *@version  1.0
@@ -19,7 +21,33 @@ public class Food {
 	private String route;//路线
 	private String traffic;//交通方式
 	private String tip;//建议
+	private Date addTime;//添加时间
+	private Date refreshTime;//修改时间
 	
+	/**
+	 * @return the addTime
+	 */
+	public Date getAddTime() {
+		return addTime;
+	}
+	/**
+	 * @return the refreshTime
+	 */
+	public Date getRefreshTime() {
+		return refreshTime;
+	}
+	/**
+	 * @param refreshTime the refreshTime to set
+	 */
+	public void setRefreshTime(Date refreshTime) {
+		this.refreshTime = refreshTime;
+	}
+	/**
+	 * @param addTime the addTime to set
+	 */
+	public void setAddTime(Date addTime) {
+		this.addTime = addTime;
+	}
 	/**
 	 * @return the id
 	 */

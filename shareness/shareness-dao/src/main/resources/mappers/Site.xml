@@ -14,6 +14,8 @@
 		<id column="play_mode" property="playMode" jdbcType="VARCHAR" />
 		<id column="tip" property="tip" jdbcType="VARCHAR" />
 		<id column="shisu" property="shisu" jdbcType="VARCHAR" />
+		<id column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+		<id column="refresh_time" property="refreshTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 
 	<insert id="insert" parameterType="com.shareness.domain.Site"
@@ -29,7 +31,9 @@
 		traffic,
 		play_mode,
 		tip,
-		shisu
+		shisu,
+		add_time,
+		refresh_time
 		)
 		values (
 		#{name,jdbcType=VARCHAR},
@@ -42,7 +46,9 @@
 		#{traffic,jdbcType=INTEGER},
 		#{playMode,jdbcType=VARCHAR},
 		#{tip,jdbcType=VARCHAR},
-		#{shisu,jdbcType=VARCHAR}
+		#{shisu,jdbcType=VARCHAR},
+		#{addTime,jdbcType=TIMESTAMP},
+		#{refreshTime,jdbcType=TIMESTAMP}
 		)
 	</insert>
 	<select id="queryById" resultMap="BaseResultMap" parameterType="java.lang.Long">
@@ -55,6 +61,7 @@
 		select *
 		from
 		t_site
+		order by refresh_time desc
 		limit
 		#{begin},#{pageSize}
 	</select>
@@ -62,6 +69,7 @@
 		select *
 		from
 		t_site
+		order by refresh_time desc
 		limit
 		0,#{limitNum}
 	</select>
@@ -100,7 +108,13 @@
 				tip=tip,
 			</if>
 			<if test="shisu !=null">
-				shisu=shisu
+				shisu=shisu,
+			</if>
+			<if test="addTime !=null">
+				add_time=addTime,
+			</if>
+			<if test="refreshTime !=null">
+				refresh_time=refreshTime
 			</if>
 
 		</set>

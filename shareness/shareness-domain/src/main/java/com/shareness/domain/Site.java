@@ -1,4 +1,7 @@
 package com.shareness.domain;
+
+import java.util.Date;
+
 /**
  *@Copy Right Information  501314.love
  *@version  1.0
@@ -20,7 +23,33 @@ public class Site {
 	private String playMode;//游玩方式
 	private String tip;//温馨提示
 	private String shisu;//宿食问题
+	private Date addTime;//添加时间
+	private Date refreshTime;//修改时间
 	
+	/**
+	 * @return the addTime
+	 */
+	public Date getAddTime() {
+		return addTime;
+	}
+	/**
+	 * @param addTime the addTime to set
+	 */
+	public void setAddTime(Date addTime) {
+		this.addTime = addTime;
+	}
+	/**
+	 * @return the refreshTime
+	 */
+	public Date getRefreshTime() {
+		return refreshTime;
+	}
+	/**
+	 * @param refreshTime the refreshTime to set
+	 */
+	public void setRefreshTime(Date refreshTime) {
+		this.refreshTime = refreshTime;
+	}
 	/**
 	 * @return the id
 	 */
