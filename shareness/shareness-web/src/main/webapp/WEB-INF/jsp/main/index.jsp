@@ -14,7 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="viewport"
 	content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
 <title>shareness</title>
-<link rel="icon" type="image/png" href="assets/i/favicon.png">
 <link rel="stylesheet" href="static/assets/css/amazeui.min.css">
 <link rel="stylesheet" href="static/css/main/main.css">
 
@@ -169,17 +168,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</ul>
 	</div>
 
-	<!-- 下拉滑动加载 -->
+	<!-- 下拉滑动加载
 	<div class="see-more" id="page_div" style="background-color: #fff">
 
 		<a id="page" style="margin-left: 40%;"><span
 			class="am-icon-refresh"></span>滑滑更精彩</a>
-		<!-- <div id="loading" style="text-align:center; display:none;">
+		<div id="loading" style="text-align:center; display:none;">
    			 <img src="../resource/images/loading.gif" style="width:20px; height:20px;">
     		<a>正在网上努力蹦跑,马上就好...</a>
-    		</div> -->
-	</div>
+    		</div>
+	</div> -->
 
+	<!-- 页脚 -->
+	<footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">
+	    <div class="am-footer-miscs">
+	        <p>liyuanguo©2015-2016</p>
+	    </div>
+    </footer>
+	
 	<!-- 弹框 -->
 	<div id="alert" class="am-modal am-modal-alert" tabindex="-1">
 		<div class="am-modal-dialog">

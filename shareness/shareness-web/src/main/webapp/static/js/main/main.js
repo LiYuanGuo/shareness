@@ -10,7 +10,7 @@ $(function(){
 		dataType:'json',
 		success:function(datas){
 			$.each(datas,function(k,v){
-				html +='<li class="headImage"><input type="hidden" id="enjoyId" value="'+v.id+'"><img src="'+v.image+'">';
+				html +='<li class="headImage"><input type="hidden" id="siteId" value="'+v.id+'"><img src="'+v.image+'">';
 				html +='<div class="am-slider-desc">'+v.briefContent+'</div></li>';
 			});
 			
@@ -19,8 +19,8 @@ $(function(){
 	$("#head_slider").html(html);
 	
 	$("#head_slider").delegate("li","click",function(){
-		var enjoyId=$(this).find("input").val();
-		location.href="main/detail?enjoyId="+enjoyId;
+		var siteId=$(this).find("input").val();
+		location.href="main/siteDetail?siteId="+siteId;
 	});
 	
 	//初始化景点数据
@@ -63,17 +63,17 @@ $(function(){
 	})
 	$("#foods").html(html);
 	
-	//控制翻页
+	/*//控制翻页
 	window.onscroll = function ()
 	  {
 	    if (Math.abs(document.body.clientHeight - document.documentElement.clientHeight) <= (document.documentElement.scrollTop || document.body.scrollTop))
 	    {
 	        select_query($('#page').val());
 	    }
-	  }
+	  }*/
 	
 });
-
+/*
 //下拉刷新数据
 function select_query(page){
   if(page == -1) {
@@ -96,4 +96,4 @@ function select_query(page){
 	});
     
   }
-}
+}*/

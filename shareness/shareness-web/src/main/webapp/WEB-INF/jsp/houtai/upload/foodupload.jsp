@@ -10,7 +10,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="UTF-8">
 <title>foodupload</title>
-<link rel="icon" type="image/png" href="assets/i/favicon.png">
 <link rel="stylesheet" href="../static/assets/css/amazeui.min.css">
 
 <script src="../static/assets/js/jquery.min.js"></script>
